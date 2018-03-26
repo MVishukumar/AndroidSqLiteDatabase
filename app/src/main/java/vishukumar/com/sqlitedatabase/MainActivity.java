@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     //MyDatabaseHelper myDatabaseHelper;
@@ -23,7 +27,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Log.d("tag", "Return value : " + myDatabaseHelper.insertData("vishu1", "vishu", "35"));
 
-        Log.d("tag", "Insert status : " + statusDatabaseHelper.addEntryInMyDiary("2018-03-26", "i am creating this", "happy"));
+
+
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(simpleDateFormat.format(date));
+
+        Log.d("tag", "Insert status : " + statusDatabaseHelper.addEntryInMyDiary(simpleDateFormat.format(date), "i am creating this", "happy"));
 
         /*
         Cursor cursor = myDatabaseHelper.getAllData();
